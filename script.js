@@ -22,7 +22,7 @@ function details(part, meaning, example) {
 searchBtn.addEventListener("click", function () {
     console.log("Search initiated");
     const inpWord = document.getElementById("inp-word").value.trim();
-
+    document.getElementById("inp-word").value = ""
     if (!inpWord) {
         result.innerHTML = "<p class='noWord'>Please enter a word to search.</p>";
         return;
