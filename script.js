@@ -61,7 +61,7 @@ searchBtn.addEventListener("click", function () {
             `;
 
             // Audio functionality
-            const audio = data[0]?.phonetics?.[0]?.audio;
+            const audio = data[0]?.phonetics?.[0]?.audio || data[0]?.phonetics?.[1]?.audio;
             const audioBtn = document.getElementById("audio-btn");
             if (audio) {
                 audioBtn.addEventListener("click", () => {
@@ -71,6 +71,7 @@ searchBtn.addEventListener("click", function () {
             } else {
                 audioBtn.disabled = true;
                 audioBtn.title = "Audio not available";
+                document.querySelector("#audio-btn").remove()
             }
         })
         .catch((error) => {
